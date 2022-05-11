@@ -1,13 +1,17 @@
 from re import X
 import tkinter as tk
-import button_commands
+import GUI.button_commands as buttons
 
 # creation of the main window
-mainWindow = tk.Tk()
-mainWindow.geometry("1000x600")
+mainWindow:tk.Tk 
 
-calcButton = tk.Button(mainWindow, text = "clac", height = 5, width = 20, command = lambda: print(button_commands.a))
-calcButton.place(x = 100, y = 100)
+def intialize():
+    mainWindow = tk.Tk()
+    mainWindow.geometry("1000x600")
+    
+    calcButton = tk.Button(mainWindow, text = "clac", height = 5, width = 20, command = lambda: buttons.print1(234))
+    calcButton.place(x = 100, y = 100)
+    
+    mainWindow.mainloop()
 
-mainWindow.mainloop()
 
