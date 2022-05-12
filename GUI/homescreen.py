@@ -1,17 +1,31 @@
-from re import X
-import tkinter as tk
-import GUI.button_commands as buttons
+from PyQt5 import QtWidgets
+import sys
 
-# creation of the main window
-mainWindow:tk.Tk 
 
-def intialize():
-    mainWindow = tk.Tk()
-    mainWindow.geometry("1000x600")
+def getText():
+    print(textBox.toPlainText())
+    if checkBox.isChecked():
+        print("i am checked")
+        
+def createWindow():
+    app = QtWidgets.QApplication(sys.argv)
+    win = QtWidgets.QMainWindow()
+    win.setGeometry(200, 200, 300, 300)
     
-    calcButton = tk.Button(mainWindow, text = "clac", height = 5, width = 20, command = lambda: buttons.print1(234))
-    calcButton.place(x = 100, y = 100)
-    
-    mainWindow.mainloop()
+    button = QtWidgets.QPushButton(win)
+    button.clicked.connect(getText)
+    button.setText("press me")
+    button.setGeometry(20, 20, 70, 70)    
 
+    global checkBox
+    checkBox = QtWidgets.QCheckBox(win)
+    checkBox.setGeometry(190, 80, 80, 80)
+    
+    global textBox
+    textBox = QtWidgets.QTextEdit(win)
+    textBox.setGeometry(80, 80, 80, 80)
+    win.show()
+    sys.exit(app.exec_())
+    
+createWindow()
 
