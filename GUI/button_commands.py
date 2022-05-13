@@ -19,6 +19,9 @@ def Define():
     disadventage = homescreen.ui.checkBox_2.isChecked()
     global rerolls 
     rerolls = homescreen.ui.checkBox_3.isChecked()
+    
+    global avaregeDamage
+    avaregeDamage = homescreen.ui.label_7
            
 def whenPressed():
     Define()
@@ -31,8 +34,7 @@ def whenPressed():
     if adventage == True:
         print("true")
     
-def checked(): 
-    if homescreen.ui.checkBox_2.isChecked():
-        print("i am checked")
-    else:
-        print("i am not checked")
+    x = int(ac) + int(attack_Bonus) + int(damage_string) + int(minForCrit) + int(chance_to_hit)
+    avaregeDamage.setText(str(x))
+        
+ 
