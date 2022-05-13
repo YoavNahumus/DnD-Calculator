@@ -1,5 +1,6 @@
 import GUI.homescreen as homescreen
-
+import time
+import sys
 def Define():
     global ac 
     ac = homescreen.ui.textEdit_4.toPlainText()
@@ -25,16 +26,11 @@ def Define():
            
 def whenPressed():
     Define()
-    print(ac)
-    print(attack_Bonus)
-    print(damage_string)
-    print(minForCrit)
-    print(chance_to_hit)
+    diceList = damage_string.split("+" and "-")
+    print(diceList)
     
-    if adventage == True:
-        print("true")
+def switchToScreen1():
+    homescreen.screens.setCurrentIndex(0)
     
-    x = int(ac) + int(attack_Bonus) + int(damage_string) + int(minForCrit) + int(chance_to_hit)
-    avaregeDamage.setText(str(x))
-        
- 
+def switchToScreen2():
+    homescreen.screens.setCurrentIndex(1)
